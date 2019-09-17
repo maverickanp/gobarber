@@ -30,11 +30,10 @@ class UserController {
     }
 
     if (oldPassword && !(await user.checkPassword(oldPassword))) {
-      res.status(401).json({ error: 'Password does not match!' });
+      return res.status(401).json({ error: 'Password does not match!' });
     }
 
     const { id, name, provider } = await user.update(req.body);
-    console.log('Alterando o usuario com o id:' + req.userId);
     return res.json({
       id,
       name,

@@ -15,7 +15,6 @@ class SessionController {
     }
 
     if (!(await user.checkPassword(password))) {
-      console.log(user.email);
       return res.status(401).json({ error: 'password does not match.' });
     }
 
