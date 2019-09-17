@@ -1,6 +1,8 @@
 import express from 'express';
 import routes from './routes';
 
+const kill = require('kill-port');
+
 import './database';
 
 class App {
@@ -13,6 +15,9 @@ class App {
 
   middlewares() {
     this.server.use(express.json());
+    //kill('3334', 'tcp')
+    //.then(console.log)
+    //.catch(console.log);
   }
 
   routes() {
