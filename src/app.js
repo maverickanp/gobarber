@@ -16,8 +16,8 @@ class App {
   middlewares() {
     this.server.use(express.json());
     //kill('3333', 'tcp')
-    //.then(console.log)
-    //.catch(console.log);
+    //  .then(console.log)
+    //  .catch(console.log);
   }
 
   routes() {
