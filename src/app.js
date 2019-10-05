@@ -1,5 +1,6 @@
 import express from 'express';
 import routes from './routes';
+import path from 'path';
 
 const kill = require('kill-port');
 
@@ -18,6 +19,10 @@ class App {
     //kill('3333', 'tcp')
     //  .then(console.log)
     //  .catch(console.log);
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
   }
 
   routes() {
