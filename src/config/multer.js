@@ -1,10 +1,11 @@
 import multer from 'multer';
 import crypto from 'crypto';
-import { extname, resolve } from 'path';
+import { extname } from 'path';
+import config from './config';
 
 export default {
   storage: multer.diskStorage({
-    destination: resolve(__dirname, '..', '..', 'tmp', 'uploads'),
+    destination: config.path.uploads,
     filename: (req, file, cb) => {
       crypto.randomBytes(16, (err, res) => {
         if (err) return cb(err);

@@ -1,10 +1,10 @@
 import express from 'express';
 import routes from './routes';
-import path from 'path';
 
 const kill = require('kill-port');
 
 import './database';
+import config from './config/config';
 
 class App {
   constructor() {
@@ -19,10 +19,7 @@ class App {
     //kill('3333', 'tcp')
     //  .then(console.log)
     //  .catch(console.log);
-    this.server.use(
-      '/files',
-      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
-    );
+    this.server.use('/files', express.static(config.path.uploads));
   }
 
   routes() {
